@@ -34,6 +34,7 @@ method: post
 body:form-data
 
 order_id:1
+
 action:delete
 
 reponse:
@@ -48,7 +49,9 @@ method: post
 body:form-data
 
 product_id:3,4
+
 customer_id:1
+
 action:add
 
 reponse:
@@ -64,8 +67,11 @@ method: post
 body:form-data
 
 order_id:2
+
 product_id:3,2
+
 customer_id:1
+
 action:edit
 
 reponse:
