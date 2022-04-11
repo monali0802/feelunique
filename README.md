@@ -28,7 +28,9 @@ data from order_id"}
 
 Delete order using order_id (I have not hard delete order except used status for not saw deleted order)
 url: http://localhost/feelunique/index.php
+
 method: post
+
 body:form-data
 
 order_id:1
@@ -40,7 +42,9 @@ reponse:
 
 Add order
 url: http://localhost/feelunique/index.php
+
 method: post
+
 body:form-data
 
 product_id:3,4
@@ -54,7 +58,9 @@ reponse:
 
 update order using order_id
 url: http://localhost/feelunique/index.php
+
 method: post
+
 body:form-data
 
 order_id:2
