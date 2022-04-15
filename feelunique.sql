@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2022 at 01:21 AM
+-- Generation Time: Apr 15, 2022 at 06:30 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `orders` (
   `id` int(100) NOT NULL,
   `customer_id` int(100) NOT NULL,
-  `product_id` varchar(100) NOT NULL,
   `currency` varchar(20) NOT NULL,
   `date` date NOT NULL,
   `price` double NOT NULL,
@@ -41,10 +40,36 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `product_id`, `currency`, `date`, `price`, `status`) VALUES
-(1, 1, '1,2', 'GBP', '2022-04-12', 119.98, 1),
-(2, 1, '3,4', 'GBP', '2022-04-12', 9.98, 1),
-(3, 1, '3,4', 'GBP', '2022-04-12', 9.98, 1);
+INSERT INTO `orders` (`id`, `customer_id`, `currency`, `date`, `price`, `status`) VALUES
+(3, 1, 'GBP', '2022-04-15', 104.98, 1),
+(4, 1, 'GBP', '2022-04-15', 9.98, 1),
+(5, 1, 'GBP', '2022-04-15', 99.99, 1),
+(6, 1, 'GBP', '2022-04-15', 119.98, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_products`
+--
+
+CREATE TABLE `orders_products` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders_products`
+--
+
+INSERT INTO `orders_products` (`id`, `order_id`, `product_id`) VALUES
+(13, 5, 1),
+(15, 3, 3),
+(16, 3, 1),
+(17, 6, 2),
+(18, 6, 1),
+(19, 4, 3),
+(20, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -79,6 +104,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -92,7 +123,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `products`
